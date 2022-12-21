@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Imenik {
-//test
+//test1
     private ArrayList<Broj> brojevi;
     private String nazivImenika;
 
