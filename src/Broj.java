@@ -1,4 +1,4 @@
-public class Broj {
+public class Broj implements  Cloneable{
 
     String kodDrzave;
     private String pozivniBroj;
@@ -60,6 +60,10 @@ public class Broj {
             return true;
         }
         return false;
+    }
+
+    public Broj clone(){
+        return new Broj(this.kodDrzave, this.pozivniBroj, this.brojTelefona);
     }
 
 }

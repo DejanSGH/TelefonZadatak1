@@ -1,6 +1,7 @@
 public class Poruka extends Usluga {
 
     private String sadrzajPoruke;
+    private String ime = "test";
 
     public Poruka(Broj broj_od, Broj broj_ka, String sadrzajPoruke) {
         super(broj_od, broj_ka);
@@ -34,6 +35,10 @@ public class Poruka extends Usluga {
     public String toString() {
         return "" + definisanjCeneUsluge();
 //        return broj_od + " --> " + broj_ka + " \nsadrzaj poruke:\n '" + this.sadrzajPoruke + "'";
+    }
+
+    public Poruka clone(){
+        return new Poruka(this.broj_od, this.broj_ka, this.sadrzajPoruke);
     }
 
 }

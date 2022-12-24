@@ -1,10 +1,8 @@
 import java.util.ArrayList;
 
-public class Korisnik {
+public class Korisnik implements Cloneable {
 
     private Broj brojKorisnika;
-    private Poziv poziv;
-    private Poruka poruka;
     private int brojUsluga;
     private ArrayList<String> vrsteUsluga;
 
@@ -19,7 +17,7 @@ public class Korisnik {
     }
 
     public void pozovi(Broj brojKojiPoziva, int trajanjePoziva){
-        this.poziv = new Poziv(brojKorisnika, brojKojiPoziva, trajanjePoziva);
+        Poziv poziv = new Poziv(brojKorisnika, brojKojiPoziva, trajanjePoziva);
 
         if(brojKojiPoziva == this.brojKorisnika){
             System.out.println("Pozivate sopstveni broj, poziv nije evidentiran");
@@ -30,7 +28,7 @@ public class Korisnik {
     }
 
     public void posaljiPoruku(Broj brojKaKojemSeSaljePoruka, String sadrzajPoruke){
-        this.poruka = new Poruka(brojKorisnika, brojKaKojemSeSaljePoruka, sadrzajPoruke);
+        Poruka poruka = new Poruka(brojKorisnika, brojKaKojemSeSaljePoruka, sadrzajPoruke);
         brojUsluga++;
         evidencijaPoruka.add(poruka);
         vrsteUsluga.add("Redni broj usluge: " + brojUsluga  + " Vrsta usluge: Poruka");
@@ -59,5 +57,16 @@ public class Korisnik {
             System.out.println(vrsteUsluga.get(i));
         }
         System.out.println("Ukupan broj svih usluga: " + this.brojUsluga);
+    }
+
+    public Korisnik clone(){
+        Korisnik novi = new Korisnik(this.brojKorisnika.clone(), this.brojUsluga);
+        for (Poziv p : this.evidencijaPoziva) {
+            //Poziv n = p.clone();
+            novi.evidencijaPoziva.add(p.clone());
+        }
+        novi.evidencijaPoruka = this.evidencijaPoruka;
+
+        return novi;
     }
 }

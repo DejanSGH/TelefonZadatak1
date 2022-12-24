@@ -1,4 +1,4 @@
-public abstract class Usluga {
+public abstract class Usluga implements Cloneable {
 
     protected boolean isPorukaPoslata;
     protected Broj broj_od;
@@ -23,5 +23,7 @@ public abstract class Usluga {
     }
 
     public abstract int definisanjCeneUsluge();
+
+    public abstract Usluga clone();
 
 }

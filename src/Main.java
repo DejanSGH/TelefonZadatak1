@@ -23,9 +23,8 @@ public class Main {
         korisnik.posaljiPoruku(broj1, "Poruka broj 3");
 //        korisnik.brojUsluga();
 //        korisnik.evidencijaPoziva();
-        korisnik.evidencijaPoruka();
+//        korisnik.evidencijaPoruka();
 //        korisnik.evidencijaUsluga();
-
 
 
     }

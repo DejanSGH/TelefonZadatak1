@@ -7,6 +7,15 @@ public class Poziv extends Usluga {
     private String zS;
     private String obavestenje;
 
+    public Poziv(Poziv poziv){
+        super(poziv.broj_od, poziv.broj_ka);
+        this.trajanjePoziva = poziv.trajanjePoziva;
+        this.ostatakSekundi = poziv.ostatakSekundi;
+        this.brojMinuta = poziv.brojMinuta;
+        this.zM = poziv.zM;
+        this.zS = poziv.zS;
+
+    }
     public Poziv(Broj broj_od, Broj broj_ka, int trajanjePoziva) {
         super(broj_od, broj_ka);
         this.trajanjePoziva = trajanjePoziva;
@@ -58,6 +67,10 @@ public class Poziv extends Usluga {
             System.out.println("Cena poziva u dinarima iznosi:");
             return (int)this.cenaUsluge;
         }
+    }
+    @Override
+    public Poziv clone(){
+        return new Poziv(this);
     }
 
     public String toString(){
